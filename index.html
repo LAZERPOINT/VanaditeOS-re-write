@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vanadite Ruby</title>
+</head>
+<body>
+<script src="jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#hide").click(function(){
+    $("#calculator").hide();
+  });
+  $("#calcbtn").click(function(){
+    $("#calculator").show();
+  });
+});
+$(document).ready(function(){
+  $("#hideide").click(function(){
+    $("#ide").hide();
+  });
+  $("#idebtn").click(function(){
+    $("#ide").show();
+  });
+});
+$(document).ready(function(){
+  $("#hideart").click(function(){
+    $("#paint").hide();
+  });
+  $("#paintbtn").click(function(){
+    $("#paint").show();
+  });
+});
+$(document).ready(function(){
+  $("#hidebrow").click(function(){
+    $("#browser").hide();
+  });
+  $("#browbtn").click(function(){
+    $("#browser").show();
+  });
+});
+$(document).ready(function(){
+  $("#colapse").click(function(){
+    $("iframe").hide();
+  });
+  $("#show").click(function(){
+    $("iframe").show();
+  });
+});
+</script>
+</head>
+<body>
+<div class="info">
+  <body onload="startTime()">
+    <div id="txt">
+  </div>
+</div>
+<div id="taskbar">
+<button id="calcbtn"></button>
+<button id="idebtn"></button>
+<button id="paintbtn"></button>
+<button id="browbtn"></button>
+</div>
+<div id="paint">
+ <div id="header-1">Doggle <button id="hideart">X</button></div>
+   <iframe src="art.html" width="496" height="460px"></iframe>
+</div>
+<div id="calculator">
+ <div id="header-1">Calculator <button id="hide">X</button></div>
+   <iframe src="calc.html" width="496" height="460px"></iframe>
+</div>
+<div id="ide">
+ <div id="header-1">Code Editor <button id="hideide">X</button></div>
+  <iframe src="ide.html" width="496" height="460px"></iframe>
+</div>
+<div id="browser">
+ <div id="header-1">Browser <button id="hidebrow">X</button></div>
+  <iframe src="https://www.google.com/webhp?igu=1" width="900px" height="600px"></iframe>
+</div>
+</body>
+<style type="text/css">
+.info {
+  position: absolute;
+  top: 1%;
+  left: 1%;
+  color: white;
+}
+iframe {
+	border: none;
+  resize: both;
+  overflow: auto;
+  display: inline-block;
+}
+* { cursor: url(cursor.png), default; }
+body {
+	background-image: url("bg.gif");
+	font-family: 'Poppins', sans-serif;
+  background-size: cover;
+}
+#hideide {
+	border-radius: 100px;
+	outline: none;
+	border: none;
+	background: #ff6c6c;
+	color: white;
+}
+#hidebrow {
+  border-radius: 100px;
+  outline: none;
+  border: none;
+  background: #ff6c6c;
+  color: white;
+}
+#hideart {
+  border-radius: 100px;
+  outline: none;
+  border: none;
+  background: #ff6c6c;
+  color: white;
+}
+#hide {
+	border-radius: 100px;
+	outline: none;
+	border: none;
+	background: #ff6c6c;
+	color: white;
+}
+#taskbar {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.10);
+    border-radius: 100px;
+    padding: 7px;
+    position: absolute;
+    backdrop-filter: blur(5px) saturate(100%);
+    bottom: 2%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+}
+#calculator {
+  display: none; 
+  position: absolute;
+  z-index: 9;
+  background-color: #242424;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+}
+#browser {
+  display: none; 
+  position: absolute;
+  z-index: 9;
+  background-color: #242424;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+}
+#header-1 {
+  padding: 5px;
+  cursor: move;
+  z-index: 10;
+  background-color: #242424;
+  color: white;
+  border-radius: 5px 5px 0px 0px;
+  text-align: left;
+}
+#calcbtn {
+  background: url("calc.png");
+  color: white;
+  padding: 22px;
+  border: none;
+  border-radius: 100px;
+}
+#browbtn {
+  background: url("browser.png");
+  color: white;
+  padding: 22px;
+  border: none;
+  border-radius: 100px;
+}
+#idebtn {
+  background: url("ide.png");
+  color: white;
+  padding: 22px;
+  border: none;
+  border-radius: 100px;
+}
+#paintbtn {
+  background: url("doggle.png");
+  color: white;
+  padding: 22px;
+  border: none;
+  border-radius: 100px;
+}
+#ide {
+  display: none; 
+  position: absolute;
+  z-index: 9;
+  background-color: #242424;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  width: 500px;
+  height: 500px;
+}
+#paint {
+  display: none; 
+  position: absolute;
+  z-index: 9;
+  background-color: #242424;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  width: 500px;
+  height: 500px;
+}
+</style>
+<script>
+    function startTime() {
+  const today = new Date();
+  let h = today.getHours();
+  let m = today.getMinutes();
+  let s = today.getSeconds();
+  m = checkTime(m);
+  s = checkTime(s);
+  document.getElementById('txt').innerHTML =  h + ":" + m + ":" + s;
+  setTimeout(startTime, 1000);
+}
+
+function checkTime(i) {
+  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+  return i;
+}
+//Make the DIV element draggagle:
+dragElement(document.getElementById("calculator"));
+
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "header")) {
+    /* if present, the header is where you move the DIV from:*/
+    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+  } else {
+    /* otherwise, move the DIV from anywhere inside the DIV:*/
+    elmnt.onmousedown = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // call a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // calculate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    /* stop moving when mouse button is released:*/
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+dragElement(document.getElementById("ide"));
+
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "header")) {
+    /* if present, the header is where you move the DIV from:*/
+    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+  } else {
+    /* otherwise, move the DIV from anywhere inside the DIV:*/
+    elmnt.onmousedown = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // call a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // calculate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    /* stop moving when mouse button is released:*/
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+dragElement(document.getElementById("paint"));
+
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "header")) {
+    /* if present, the header is where you move the DIV from:*/
+    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+  } else {
+    /* otherwise, move the DIV from anywhere inside the DIV:*/
+    elmnt.onmousedown = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // call a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // calculate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    /* stop moving when mouse button is released:*/
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+dragElement(document.getElementById("browser"));
+
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "header")) {
+    /* if present, the header is where you move the DIV from:*/
+    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+  } else {
+    /* otherwise, move the DIV from anywhere inside the DIV:*/
+    elmnt.onmousedown = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // call a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // calculate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    /* stop moving when mouse button is released:*/
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+</script>
+</html>
