@@ -114,15 +114,20 @@ $(document).ready(function(){
         <button id="btn-2">Crystal</button>
         <button id="btn-3">Acid</button>
         <button id="btn-4">Ring</button>
+	<button id="btn-5">Blue mesh</button>
     </div>
     <script>
 let btn1 = document.querySelector('#btn-1');
 let btn2 = document.querySelector('#btn-2');
 let btn3 = document.querySelector('#btn-3');
 let btn4 = document.querySelector('#btn-4');
+let btn5 = document.querySelector('#btn-5');
 let btnmenu = document.querySelector('.menu');
 btn1.addEventListener('click', () =>{
     document.body.style.backgroundImage = "url('bg.gif')";
+});
+btn5.addEventListener('click', () =>{
+    document.body.style.backgroundImage = "url('blue.png')";
 });
 btn2.addEventListener('click', () =>{
     document.body.style.backgroundImage = "url('bg3.gif')";
