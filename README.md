@@ -2,9 +2,9 @@
 ![Logo](https://github.com/LAZERPOINT/VanaditeOS-re-write/blob/main/bg.png?raw=true)
 
 
-# Vanadite OS
+# Vanadite
 
-HTML sandbox for all browsers.
+HTML sandbox for all browsers and platforms.
 ## About Vanadite
 Vanadite can do alot of things such as:
 - Run HTML files nativly.
