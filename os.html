@@ -19,7 +19,7 @@
   <link rel="manifest" href="manifest.json">
   <meta name="veiwport" content="width=device-width, initial-scare=1">
 
-	<title>Vanadite Bismuth</title>
+	<title>Vanadite Ruby</title>
 </head>
 <body onload="startTime()">
 <script src="jquery.min.js"></script>
@@ -96,6 +96,14 @@ $(document).ready(function(){
     $(".menu").show();
   });
 });
+$(document).ready(function(){
+  $("#hidepost").click(function(){
+    $("#post").hide();
+  });
+  $("#postbtn").click(function(){
+    $("#post").show();
+  });
+});
 </script>
 </head>
 <body>
@@ -121,10 +129,15 @@ $(document).ready(function(){
 <button id="setbtn"></button>
 <button id="appbtn"></button>
 <button id="filebtn"></button>
+<button id="postbtn"></button>
 </div>
 <div id="paint">
- <div id="header-1"><img src="doggle.png" width="15px" height="15px">Doggle <button id="hideart">X</button></div>
+ <div id="header-1"><img src="browser.png" width="15px" height="15px">Doggle <button id="hideart">X</button></div>
    <iframe src="art.html" width="496" height="460px"></iframe>
+</div>
+<div id="post">
+ <div id="header-1"><img src="post.png" width="15px" height="15px">Vanadite Post <button id="hidepost">X</button></div>
+   <iframe src="https://vanaditepost.netlify.app/" width="496" height="460px"></iframe>
 </div>
 <div id="widget">
   <button id="backbtn" onclick="window.history.back()">Back</button>
@@ -133,7 +146,7 @@ $(document).ready(function(){
 </div>
 <div id="files">
   <button id="backbtn" onclick="window.history.back()">Back</button>
- <div id="header-1"><img src="files.png" width="15px" height="15px">Files <button id="hidefiles">X</button></div>
+ <div id="header-1"><img src="browser.png" width="15px" height="15px">Files <button id="hidefiles">X</button></div>
    <iframe src="files.html" width="496" height="460px"></iframe>
 </div>
 <div id="App">
@@ -161,29 +174,14 @@ $(document).ready(function(){
 <div id="settings">
  <div id="header-1"><img src="settings.png" width="15px" height="15px">Settings <button id="hideset">X</button></div>
     <div>
-	    <p> v1.0 </p>
-      <p>Theme</p>
+      <h1>Theme</h1>
         <input type="text" id="hex">
         <input type="color" id="color">
         <br>
     </div>
     <div>
-	<fieldset>
-    		<legend>Wallpapers</legend>
-    		<div id="wallpapers1">       
-		<button id="btn-1">Green swirl</button>
-        	<button id="btn-2">Crystal</button>
-        	<button id="btn-3">Acid</button>
-        	<button id="btn-4">Ring</button>
-        	<button id="btn-5">Green mesh gradient</button>
-        	<button id="btn-6">Blue mesh gradient</button>
-        	<button id="btn-7">Red mesh gradient</button>
-        	<button id="btn-8">Purple mesh gradient</button>
-        	<button id="btn-9">Red mountaint gradient</button>
-        	<button id="btn-10">Green mountaint gradient</button>
-		</div>
-  	</fieldset>
-      <p>Wallpapers</p>
+
+      <h1>Wallpapers</h1>
         <button id="btn-1">Green swirl</button>
         <button id="btn-2">Crystal</button>
         <button id="btn-3">Acid</button>
@@ -280,9 +278,6 @@ function checkTime(i) {
 </div>
 </body>
 <style type="text/css">
-	feildset {
-	 border:none;
-	}
 #backbtn {
   top: 6px;
   right: 30px;
@@ -427,6 +422,17 @@ body {
 	border: none;
 	background: #ff6c6c;
 	color: white;
+  position: absolute;
+  top: 1.3%;
+  box-shadow: -5px -5px 15px rgba(255,255,255, 0.5), 5px 5px 15px rgba(70,70,70,0.12);
+  right: 1%;
+}
+#hidepost {
+  border-radius: 100px;
+  outline: none;
+  border: none;
+  background: #ff6c6c;
+  color: white;
   position: absolute;
   top: 1.3%;
   box-shadow: -5px -5px 15px rgba(255,255,255, 0.5), 5px 5px 15px rgba(70,70,70,0.12);
@@ -645,6 +651,20 @@ body {
   max-width: 30px;
   margin: 3px;
 }
+#postbtn {
+  background: url("post.png");
+  color: white;
+  border: none;
+  padding: 5px;
+  border-radius: 10px;
+    width: 30px;
+  height: 30px;
+  min-width: 30px;
+  min-height: 30px;
+  max-height: 30px;
+  max-width: 30px;
+  margin: 3px;
+}
 #filebtn {
   background: url("files.png");
   color: white;
@@ -701,6 +721,19 @@ body {
   margin: 3px;
 }
 #ide {
+  box-shadow: -5px -5px 15px rgba(255,255,255, 0.5), 5px 5px 15px rgba(70,70,70,0.12);
+  display: none; 
+  position: absolute;
+  z-index: 9;
+  background-color: rgba(250, 250, 250, 0.20);
+  backdrop-filter: blur(5px) saturate(100%);
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  width: 500px;
+  height: 500px;
+}
+#post {
   box-shadow: -5px -5px 15px rgba(255,255,255, 0.5), 5px 5px 15px rgba(70,70,70,0.12);
   display: none; 
   position: absolute;
@@ -1089,6 +1122,48 @@ function dragElement(elmnt) {
   }
 }
 dragElement(document.getElementById("widget"));
+
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "header")) {
+    /* if present, the header is where you move the DIV from:*/
+    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+  } else {
+    /* otherwise, move the DIV from anywhere inside the DIV:*/
+    elmnt.onmousedown = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // call a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // calculate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    /* stop moving when mouse button is released:*/
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+dragElement(document.getElementById("post"));
 
 function dragElement(elmnt) {
   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
