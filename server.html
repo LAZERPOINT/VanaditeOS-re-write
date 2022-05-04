@@ -3,7 +3,6 @@
     <form id="settings">
       <img src="favicon.svg" id="pfp"> &nbsp
        <p id=title>Vanadite Post &nbsp</p><input id="usernaem" class="usernaem" type="text" value="" readonly="">
-      <a href="index.html">Log out</a>
     </form>
     <form id="sign">
       <input id="alias" placeholder="Public Key">
@@ -19,6 +18,21 @@
         <input id="speak" type="submit" value="speak" value="allias">
     </form>
 <style type="text/css">
+  #menu2 {
+    position: fixed;
+    left: -480;
+  }
+  #menu {
+    top: 0;
+    position: sticky;
+    display: inline-block;
+    width: 200px;
+    height: 97.5vh;
+    background: #020202;
+    border-radius: 0px 20px 20px 0px;
+    border: none;
+    z-index: 2;
+  }
   #usernaem {
     position: relative;
     top: -25;
@@ -61,9 +75,6 @@
     top: -5;
   }
   a {
-    position: relative;
-    top: -24;
-    right: -100;
     margin: 0;
     background: black;
     color: white;
