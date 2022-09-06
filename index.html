@@ -1,10 +1,16 @@
 <body onload="startTime()">
-
 <div id="txt"></div>
-
+<div id="profile">
+  <img id="pfp" width="150px" height="150px" src="favicon.png">
+  <h1 id="Welcome"> Welcome User </h1>
+</div>
 <a href="os.html">Click to enter</a>
 
 <script>
+document.getElementById("Welcome").innerHTML = `${localStorage.getItem("name")}`;
+document.getElementById("pfp").src = `${localStorage.getItem("pfp")}`;
+
+
 function startTime() {
   const today = new Date();
   let h = today.getHours();
@@ -21,13 +27,21 @@ function checkTime(i) {
   return i;
 }
 </script>
-<h1 id="Welcome"> Welcome User </h1>
 </body>
 <style type="text/css">
+  #profile {
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 30%;
+  }
   a {
     position: absolute;
     bottom: 10px;
     font-size: 20px;
+    color: white;
+    text-decoration: none;
     left: 50%;
     transform: translateX(-50%);
   }
@@ -36,6 +50,9 @@ function checkTime(i) {
     font-size: 20px;
     bottom: 35px;
     left: 20px;
+  }
+  #pfp {
+      border-radius: 100vh;
   }
   body {
     background-image: url("lock screen.png");
@@ -46,7 +63,4 @@ function checkTime(i) {
     color: white;
   }
   #welcome {
-    position: absolute;
-    bottom: 40px;
-    left: 20px;
   }

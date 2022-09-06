@@ -1,19 +1,35 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="22" height="28" viewBox="0 0 22 28">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="19" height="24" viewBox="0 0 19 24">
   <defs>
-    <filter id="Path_13" x="-0.043" y="-0.957" width="22.786" height="31.399" filterUnits="userSpaceOnUse">
-      <feOffset dy="1" input="SourceAlpha"/>
-      <feGaussianBlur stdDeviation="1.5" result="blur"/>
-      <feFlood flood-opacity="0.71"/>
+    <filter id="Path_13" x="0" y="-2" width="21" height="27.914" filterUnits="userSpaceOnUse">
+      <feOffset input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="1" result="blur"/>
+      <feFlood flood-opacity="0.2"/>
       <feComposite operator="in" in2="blur"/>
       <feComposite in="SourceGraphic"/>
     </filter>
+    <filter id="Rectangle_1" x="4.085" y="13.085" width="12.83" height="12.83" filterUnits="userSpaceOnUse">
+      <feOffset input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="1" result="blur-2"/>
+      <feFlood flood-opacity="0.2"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
     <clipPath id="clip-cursor">
-      <rect width="22" height="28"/>
+      <rect width="19" height="24"/>
     </clipPath>
   </defs>
   <g id="cursor" clip-path="url(#clip-cursor)">
     <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Path_13)">
-      <path id="Path_13-2" data-name="Path 13" d="M2248.5-14.085l3.832-3.979,3.439,6.927,3.341-1.916-3.586-6.387h5.061L2248.5-31.623Z" transform="translate(-2243.54 35.38)" stroke="#fff" stroke-width="1"/>
+      <g id="Path_13-2" data-name="Path 13" transform="translate(2261 -47)">
+        <path d="M -2257.5 68.49082183837891 L -2257.5 49.17916870117188 L -2244.236328125 62.01175689697266 L -2252.065185546875 62.01175689697266 L -2252.30517578125 62.01175689697266 L -2252.455322265625 62.1989860534668 L -2257.5 68.49082183837891 Z" stroke="none"/>
+        <path d="M -2257 67.06790161132812 L -2252.545166015625 61.51175689697266 L -2245.47216796875 61.51175689697266 L -2257 50.3586311340332 L -2257 67.06790161132812 M -2258 69.91371917724609 L -2258 47.99970626831055 L -2243.00048828125 62.51175689697266 L -2252.065185546875 62.51175689697266 L -2258 69.91371917724609 Z" stroke="none" fill="#fff"/>
+      </g>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Rectangle_1)">
+      <g id="Rectangle_1-2" data-name="Rectangle 1" transform="translate(9.58 16.08) rotate(30)" stroke="#fff" stroke-width="1">
+        <rect width="5" height="5" rx="1" stroke="none"/>
+        <rect x="0.5" y="0.5" width="4" height="4" rx="0.5" fill="none"/>
+      </g>
     </g>
   </g>
 </svg>

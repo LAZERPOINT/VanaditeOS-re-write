@@ -19,7 +19,7 @@
   <link rel="manifest" href="manifest.json">
   <meta name="veiwport" content="width=device-width, initial-scare=1">
 
-	<title>Vanadite Ruby</title>
+	<title>Vanadite Lunar</title>
 </head>
 <body onload="startTime()">
 <script src="jquery.min.js"></script>
@@ -40,6 +40,16 @@ $(document).ready(function(){
     $("#files").show();
   });
 });
+
+$(document).ready(function(){
+  $("#hidedrive").click(function(){
+    $("#driveapp").hide();
+  });
+  $("#drive").click(function(){
+    $("#driveapp").show();
+  });
+});
+
 $(document).ready(function(){
   $("#hideapp").click(function(){
     $("#App").hide();
@@ -80,6 +90,16 @@ $(document).ready(function(){
     $("iframe").show();
   });
 });
+
+$(document).ready(function(){
+  $("#widgettoggle").click(function(){
+    $("#widget").hide();
+  });
+  $("#widgettoggle").click(function(){
+    $("#widget").show();
+  });
+});
+
 $(document).ready(function(){
   $("#hideset").click(function(){
     $("#settings").hide();
@@ -108,20 +128,39 @@ $(document).ready(function(){
 </head>
 <body>
 <div class="menu">
-	<button class="hidemenu">X</button>
 	<h1> Start Menu </h1>
+<form id="form" onsubmit="return false;">
+    <input type="text" id="userInput" />
+    <input type="submit" onclick="othername();" />
+</form>
+<iframe id="brow" src="menu.html"></iframe>
+<script type="text/javascript">
+  function othername() {
+    var input = document.getElementById("userInput").value;
+    document.getElementById("brow").src = input;
+}
+</script>
+<br>
+<br>
 	<button onClick="window.location.reload(true)">Reload</button>
-  <fieldset>
-    <legend>Apps</legend>
-    <div id="lsoutput"></div>
-  </fieldset>
+  <button class="hidemenu">X</button>
+  <p>Version: Lunar(1.5)</p>
 </div>
 <div id="taskbar">
+<button id="startmenu"></button>
+<button id="widgettoggle"></button>
+<button id="drive"></button>
+</div>
+
+<div id="timebar">
 <div class="info">
     <div id="txt">
   </div>
 </div>
-<button id="startmenu"></button>
+<button id="volume"></button>
+</div>
+
+<div id="appbar">
 <button id="calcbtn"></button>
 <button id="idebtn"></button>
 <button id="paintbtn"></button>
@@ -131,13 +170,15 @@ $(document).ready(function(){
 <button id="filebtn"></button>
 <button id="postbtn"></button>
 </div>
+
+
 <div id="paint">
  <div id="header-1"><img src="browser.png" width="15px" height="15px">Doggle <button id="hideart">X</button></div>
    <iframe src="art.html" width="496" height="460px"></iframe>
 </div>
 <div id="post">
- <div id="header-1"><img src="post.png" width="15px" height="15px">Vanadite Post <button id="hidepost">X</button></div>
-   <iframe src="https://vanaditepost.000webhostapp.com/" width="1096" height="460px"></iframe>
+ <div id="header-1"><img src="post.png" width="15px" height="15px">Figmint <button id="hidepost">X</button></div>
+   <iframe src="https://figmint.netlify.app/" width="920px" height="460px"></iframe>
 </div>
 <div id="widget">
   <button id="backbtn" onclick="window.history.back()">Back</button>
@@ -146,9 +187,15 @@ $(document).ready(function(){
 </div>
 <div id="files">
   <button id="backbtn" onclick="window.history.back()">Back</button>
- <div id="header-1"><img src="browser.png" width="15px" height="15px">Files <button id="hidefiles">X</button></div>
+ <div id="header-1"><img src="files.png" width="15px" height="15px">Files <button id="hidefiles">X</button></div>
    <iframe src="files.html" width="496" height="460px"></iframe>
 </div>
+
+<div id="driveapp">
+ <div id="header-1"><img src="online.svg" width="15px" height="15px">Drive <button id="hidedrive">X</button></div>
+   <iframe src="drive.html" width="496" height="460px"></iframe>
+</div>
+
 <div id="App">
   <button id="backbtn" onclick="window.history.back()">Back</button>
  <div id="header-1"><img src="app.png" width="15px" height="15px">App Player <button id="hideapp">X</button></div>
@@ -174,14 +221,18 @@ $(document).ready(function(){
 <div id="settings">
  <div id="header-1"><img src="settings.png" width="15px" height="15px">Settings <button id="hideset">X</button></div>
     <div>
-      <h1>Theme</h1>
+      <div id="profile">
+  <img id="pfp" width="80px" height="80px" src="favicon.png">
+  <h1 id="Welcome"> Welcome User </h1>
+</div>
+      <p>Color</p>
         <input type="text" id="hex">
         <input type="color" id="color">
         <br>
     </div>
     <div>
 
-      <h1>Wallpapers</h1>
+      <p>Wallpapers</p>
         <button id="btn-1">Green swirl</button>
         <button id="btn-2">Crystal</button>
         <button id="btn-3">Acid</button>
@@ -190,17 +241,24 @@ $(document).ready(function(){
         <button id="btn-6">Blue mesh gradient</button>
         <button id="btn-7">Red mesh gradient</button>
         <button id="btn-8">Purple mesh gradient</button>
-        <button id="btn-9">Red mountaint gradient</button>
+        <button id="btn-9">Rainbow gradient</button>
         <button id="btn-10">Green mountaint gradient</button>
+        <button id="btn-14">Dark red mesh gradient</button>
+        <button id="btn-15">Pink and blue mesh gradient</button>
+        <button id="btn-16">Figmint Wallpaper</button>
+        <button id="btn-17">Loopy Wallpaper</button>
+        <button id="btn-18">Lock Screen Wallpaper</button>
+        <button id="btn-18">Asphault Wallpaper</button>
+        <p> Themes </p>
+        <button id="btn-11">Figmint OS</button>
+        <button id="btn-12">Loopy OS</button>
+        <button id="btn-13">Vanadite OS</button>
     </div>
     <script>
-        for (let i = 0; i < localStorage.length; i++) {
-    const key = localStorage.key(i);
-    const value = localStorage.getItem(key);
+document.getElementById("Welcome").innerHTML = `${localStorage.getItem("name")}`;
+document.getElementById("pfp").src = `${localStorage.getItem("pfp")}`;
 
-    lsoutput.innerHTML += `${key} <a href="${value}">Play</a><br />`
-    lsoutput2.innerHTML += `<img src="files.png"> <br/>${key} <br/>`
-  }
+
 let btn1 = document.querySelector('#btn-1');
 let btn2 = document.querySelector('#btn-2');
 let btn3 = document.querySelector('#btn-3');
@@ -211,9 +269,50 @@ let btn7 = document.querySelector('#btn-7');
 let btn8 = document.querySelector('#btn-8');
 let btn9 = document.querySelector('#btn-9');
 let btn10 = document.querySelector('#btn-10');
-let btnmenu = document.querySelector('.menu');
+let btn11 = document.querySelector('#btn-11');
+let btn12 = document.querySelector('#btn-12');
+let btn13 = document.querySelector('#btn-13');
+let btn14 = document.querySelector('#btn-14');
+let btn15 = document.querySelector('#btn-15');
+let btn16 = document.querySelector('#btn-16');
+let btn17 = document.querySelector('#btn-17');
+let btn18 = document.querySelector('#btn-18');
+let btn19 = document.querySelector('#btn-19');
 btn1.addEventListener('click', () =>{
     document.body.style.backgroundImage = "url('bg.gif')";
+});
+btn11.addEventListener('click', () =>{
+    document.body.style.backgroundImage = "url('Instagram Post – 4.png')";
+    document.getElementById("startmenu").style.background = "url('favicon – 3.svg')";
+    document.title.innerHTML = "Figmint OS";
+});
+btn14.addEventListener('click', () =>{
+    document.body.style.backgroundImage = "url('dark.png')";
+});
+btn15.addEventListener('click', () =>{
+    document.body.style.backgroundImage = "url('backg.png')";
+});
+btn16.addEventListener('click', () =>{
+    document.body.style.backgroundImage = "url('Instagram Post – 4.png')";
+});
+btn17.addEventListener('click', () =>{
+    document.body.style.backgroundImage = "url('bg og.png')";
+});
+btn18.addEventListener('click', () =>{
+    document.body.style.backgroundImage = "url('lock screen.png')";
+});
+btn19.addEventListener('click', () =>{
+    document.body.style.backgroundImage = "url('mesh-172.png')";
+});
+btn13.addEventListener('click', () =>{
+    document.body.style.backgroundImage = "url('bg.png')";
+    document.title.innerHTML = "Vanadite OS";
+    document.getElementById("startmenu").style.background = "url('start.svg')";
+});
+btn12.addEventListener('click', () =>{
+    document.body.style.backgroundImage = "url('bg og.png')";
+    document.getElementById("startmenu").style.background = "url('favico3n – 2.svg')";
+    document.title.innerHTML = "Loopy OS";
 });
 btn10.addEventListener('click', () =>{
     document.body.style.backgroundImage = "url('gren.png')";
@@ -273,6 +372,12 @@ function checkTime(i) {
   return i;
 }
     </script>
+    <style type="text/css">
+  #pfp {
+      border-radius: 100vh;
+  }
+
+    </style>
 </body>
 </html>
 </div>
@@ -282,7 +387,7 @@ function checkTime(i) {
   top: 6px;
   right: 30px;
   position: absolute;
-  background: linear-gradient(to right, rgba(229, 239, 249, 0.1), rgba(213, 220, 238, 0.8), rgba(229, 239, 249, 0.1));
+  background-color: rgba(0, 0, 0, 0.50);
   backdrop-filter: blur(10px);
 }
 input {
@@ -290,7 +395,7 @@ input {
   outline: none;
 }
 button {
-  background: linear-gradient(to right, rgba(229, 239, 249, 0.1), rgba(213, 220, 238, 0.8), rgba(229, 239, 249, 0.1));
+  background-color: rgba(0, 0, 0, 0.50);
     backdrop-filter: blur(10px);
     font-family: 'Poppins', sans-serif; 
     color: white; 
@@ -363,46 +468,37 @@ button {
 }
 #browbtn:hover {
   color: black;
-  border-radius: 100vh;
 }
 button:hover {
-  background: linear-gradient(to right, rgba(229, 239, 249, 0.1), rgba(213, 220, 238, 0.8), rgba(229, 239, 249, 0.1));
+  background-color: rgba(0, 0, 0, 0.50);
     backdrop-filter: blur(10px);
-  border-radius: 100vh;
   border: none;
   background: black;
   color: white;
 }
 #filebtn:hover {
   color: black;
-  border-radius: 100vh;
 }
 #setbtn:hover {
   color: black;
-  border-radius: 100vh;
 }
 #calcbtn:hover {
   color: black;
-  border-radius: 100vh;
 }
 #idebtn:hover {
   color: black;
-  border-radius: 100vh;
 }
 #paintbtn:hover {
   color: black;
-  border-radius: 100vh;
 }
 #startmenu:hover {
   color: black;
-  border-radius: 100vh;
 }
 .info {
   color: white;
 }
 iframe {
 	border: none;
-  border-radius: 10px;
   display: inline-block;
   overflow: none;
 }
@@ -410,37 +506,41 @@ iframe {
 	cursor: url(cursor.svg), default;
 }
 body {
-	background-image: url("bg.png");
+	background-image: url("mesh-172.png");
 	font-family: 'Poppins', sans-serif;
   background-size: cover;
+  color: white;
   transition: 1s;
   margin: 0;
 }
 #hideide {
-	border-radius: 100px;
 	outline: none;
 	border: none;
 	background: #ff6c6c;
 	color: white;
   position: absolute;
   top: 1.3%;
-  box-shadow: -5px -5px 15px rgba(255,255,255, 0.5), 5px 5px 15px rgba(70,70,70,0.12);
   right: 1%;
 }
 #hidepost {
-  border-radius: 100px;
   outline: none;
   border: none;
   background: #ff6c6c;
   color: white;
   position: absolute;
   top: 1.3%;
-  box-shadow: -5px -5px 15px rgba(255,255,255, 0.5), 5px 5px 15px rgba(70,70,70,0.12);
   right: 1%;
 }
 #hidefile {
-  box-shadow: -5px -5px 15px rgba(255,255,255, 0.5), 5px 5px 15px rgba(70,70,70,0.12);
-  border-radius: 100px;
+  outline: none;
+  border: none;
+  background: #ff6c6c;
+  color: white;
+  position: absolute;
+  top: 1.3%;
+  right: 1%;
+}
+#hidedrive {
   outline: none;
   border: none;
   background: #ff6c6c;
@@ -450,8 +550,6 @@ body {
   right: 1%;
 }
 #hideset {
-  box-shadow: -5px -5px 15px rgba(255,255,255, 0.5), 5px 5px 15px rgba(70,70,70,0.12);
-  border-radius: 100px;
   outline: none;
   border: none;
   background: #ff6c6c;
@@ -461,8 +559,6 @@ body {
   right: 1%;
 }
 #hidebrow {
-  box-shadow: -5px -5px 15px rgba(255,255,255, 0.5), 5px 5px 15px rgba(70,70,70,0.12);
-  border-radius: 100px;
   outline: none;
   border: none;
   background: #ff6c6c;
@@ -472,8 +568,6 @@ body {
   right: 1%;
 }
 #hidefiles {
-  box-shadow: -5px -5px 15px rgba(255,255,255, 0.5), 5px 5px 15px rgba(70,70,70,0.12);
-  border-radius: 100px;
   outline: none;
   border: none;
   background: #ff6c6c;
@@ -483,8 +577,6 @@ body {
   right: 1%;
 }
 #hideart {
-  box-shadow: -5px -5px 15px rgba(255,255,255, 0.5), 5px 5px 15px rgba(70,70,70,0.12);
-  border-radius: 100px;
   outline: none;
   border: none;
   background: #ff6c6c;
@@ -494,8 +586,6 @@ body {
   right: 1%;
 }
 #hideapp {
-  box-shadow: -5px -5px 15px rgba(255,255,255, 0.5), 5px 5px 15px rgba(70,70,70,0.12);
-  border-radius: 100px;
   outline: none;
   border: none;
   background: #ff6c6c;
@@ -505,8 +595,6 @@ body {
   right: 1%;
 }
 #hide {
-  box-shadow: -5px -5px 15px rgba(255,255,255, 0.5), 5px 5px 15px rgba(70,70,70,0.12);
-	border-radius: 100px;
 	outline: none;
 	border: none;
 	background: #ff6c6c;
@@ -521,75 +609,121 @@ body {
   bottom: 10px;
 }
 #taskbar {
-    resize: horizontal;
-    box-shadow: -5px -5px 15px rgba(255,255,255, 0.5), 5px 5px 15px rgba(70,70,70,0.12);
 	  align-items: center;
-    background: linear-gradient(to right, rgba(229, 239, 249, 0.1), rgba(213, 220, 238, 0.8), rgba(229, 239, 249, 0.1));
+    background: rgba(0,0,0, 0.5);
     backdrop-filter: blur(10px);
     margin: 0;
-    border-radius: 20px;
     display: flex;
     position: absolute;
     text-align: center;
     justify-content: center;
     z-index: 1000;
-    width: 70%;
-    bottom: 20px;
+    width: 10%;
+    bottom: 0;
     height: 45px;
     left: 50%;
     transform: translateX(-50%);
     overflow: auto;
 }
+#timebar {
+    align-items: center;
+    background: rgba(0,0,0, 0.5);
+    backdrop-filter: blur(10px);
+    margin: 0;
+    display: flex;
+    position: absolute;
+    text-align: center;
+    justify-content: center;
+    z-index: 1000;
+    width: 8%;
+    bottom: 0;
+    height: 45px;
+    right: 0;
+    overflow: auto;
+}
+#plugins {
+    align-items: center;
+    background: rgba(0,0,0, 0.5);
+    backdrop-filter: blur(10px);
+    margin: 0;
+    display: flex;
+    position: absolute;
+    text-align: center;
+    justify-content: center;
+    z-index: 1000;
+    width: 8%;
+    top: 0;
+    height: 45px;
+    right: 0;
+    overflow: auto;
+}
+#appbar {
+    align-items: center;
+    background: rgba(0,0,0, 0.5);
+    backdrop-filter: blur(10px);
+    margin: 0;
+    display: flex;
+    position: absolute;
+    text-align: center;
+    justify-content: center;
+    z-index: 1000;
+    width: 20%;
+    bottom: 0;
+    height: 45px;
+    left: 0;
+    overflow: auto;
+}
 #calculator {
   background-color: rgba(250, 250, 250, 0.20);
     backdrop-filter: blur(5px) saturate(100%);
-  box-shadow: -5px -5px 15px rgba(255,255,255, 0.5), 5px 5px 15px rgba(70,70,70,0.12);
   display: none; 
   position: absolute;
   z-index: 9;
   background-color: #242424;
   text-align: center;
   border: none;
-  border-radius: 5px;
 }
 #browser {
-  box-shadow: -5px -5px 15px rgba(255,255,255, 0.5), 5px 5px 15px rgba(70,70,70,0.12);
   display: none; 
   position: absolute;
   z-index: 9;
-  background-color: rgba(250, 250, 250, 0.20);
+  background-color: rgba(0, 0, 0, 0.50);
   backdrop-filter: blur(5px) saturate(100%);
   text-align: center;
   border: none;
-  border-radius: 5px;
 }
 #files {
-  box-shadow: -5px -5px 15px rgba(255,255,255, 0.5), 5px 5px 15px rgba(70,70,70,0.12);
   display: none; 
   position: absolute;
   z-index: 9;
-  background-color: rgba(250, 250, 250, 0.20);
+  background-color: rgba(0, 0, 0, 0.50);
   backdrop-filter: blur(5px) saturate(100%);
   text-align: center;
   border: none;
-  border-radius: 5px;
+}
+#driveapp {
+  display: none; 
+  position: absolute;
+  z-index: 9;
+  background-color: rgba(0, 0, 0, 0.50);
+  backdrop-filter: blur(5px) saturate(100%);
+  text-align: center;
+  border: none;
 }
 #header-1 {
   padding: 5px;
   cursor: move;
   z-index: 10;
-  background-color: rgba(250, 250, 250, 0);
+  background-color: rgba(0, 0, 0, 0.50);
   color: white;
-  border-radius: 5px 5px 0px 0px;
   text-align: left;
 }
 #header-2 {
   padding: 5px;
   cursor: move;
   z-index: 10;
-  background-color: rgba(250, 250, 250, 0);
+  background-color: rgba(0, 0, 0, 0.50);
   color: white;
-  border-radius: 5px 5px 0px 0px;
   text-align: left;
 }
 #calcbtn {
@@ -597,7 +731,6 @@ body {
   color: white;
   border: none;
   padding: 5px;
-  border-radius: 10px;
     width: 30px;
   height: 30px;
   min-width: 30px;
@@ -611,24 +744,66 @@ body {
   color: white;
   border: none;
   padding: 5px;
-  border-radius: 10px;
   width: 30px;
   height: 30px;
   min-width: 30px;
   min-height: 30px;
   max-height: 30px;
   max-width: 30px;
-  border-radius: 10px
   margin: 3px;
   position: absolute;
   left: 10px;
+}
+#volume {
+  background: url("vol.svg");
+  color: white;
+  border: none;
+  padding: 5px;
+  width: 30px;
+  height: 30px;
+  min-width: 30px;
+  min-height: 30px;
+  max-height: 30px;
+  max-width: 30px;
+  margin: 3px;
+  position: absolute;
+  left: 10px;
+}
+#drive {
+  background: url("online.svg");
+  color: white;
+  border: none;
+  padding: 5px;
+  width: 30px;
+  height: 30px;
+  min-width: 30px;
+  min-height: 30px;
+  max-height: 30px;
+  max-width: 30px;
+  margin: 3px;
+  position: absolute;
+  right: 10px;
+}
+#widgettoggle {
+  background: url("widget.svg");
+  color: white;
+  border: none;
+  padding: 5px;
+  width: 30px;
+  height: 30px;
+  min-width: 30px;
+  min-height: 30px;
+  max-height: 30px;
+  max-width: 30px;
+  margin: 3px;
+  position: absolute;
+  left: 60px;
 }
 #browbtn {
   background: url("browser.png");
   color: white;
   border: none;
   padding: 5px;
-  border-radius: 10px;
     width: 30px;
   height: 30px;
   min-width: 30px;
@@ -642,7 +817,6 @@ body {
   color: white;
   border: none;
   padding: 5px;
-  border-radius: 10px;
     width: 30px;
   height: 30px;
   min-width: 30px;
@@ -656,7 +830,6 @@ body {
   color: white;
   border: none;
   padding: 5px;
-  border-radius: 10px;
     width: 30px;
   height: 30px;
   min-width: 30px;
@@ -670,7 +843,6 @@ body {
   color: white;
   border: none;
   padding: 5px;
-  border-radius: 10px;
     width: 30px;
   height: 30px;
   min-width: 30px;
@@ -684,7 +856,6 @@ body {
   color: white;
   border: none;
   padding: 5px;
-  border-radius: 10px;
     width: 30px;
   height: 30px;
   min-width: 30px;
@@ -693,11 +864,11 @@ body {
   max-width: 30px;
   margin: 3px;
 }
-#paintbtn { background: url("doggle.png");
+#paintbtn { 
+  background: url("doggle.png");
   color: white;
   border: none;
   padding: 5px;
-  border-radius: 10px;
     width: 30px;
   height: 30px;
   min-width: 30px;
@@ -711,7 +882,6 @@ body {
   color: white;
   border: none;
   padding: 5px;
-  border-radius: 10px;
     width: 30px;
   height: 30px;
   min-width: 30px;
@@ -721,92 +891,86 @@ body {
   margin: 3px;
 }
 #ide {
-  box-shadow: -5px -5px 15px rgba(255,255,255, 0.5), 5px 5px 15px rgba(70,70,70,0.12);
   display: none; 
   position: absolute;
   z-index: 9;
-  background-color: rgba(250, 250, 250, 0.20);
+  background-color: rgba(0, 0, 0, 0.50);
   backdrop-filter: blur(5px) saturate(100%);
   text-align: center;
   border: none;
-  border-radius: 5px;
   width: 500px;
   height: 500px;
 }
 #post {
-  box-shadow: -5px -5px 15px rgba(255,255,255, 0.5), 5px 5px 15px rgba(70,70,70,0.12);
   display: none; 
   position: absolute;
   z-index: 9;
-  background-color: rgba(250, 250, 250, 0.20);
+  background-color: rgba(0, 0, 0, 0.50);
   backdrop-filter: blur(5px) saturate(100%);
   text-align: center;
   border: none;
-  border-radius: 5px;
-  width: 1100px;
+  width: 930px;
   height: 500px;
 }
 #App {
-  box-shadow: -5px -5px 15px rgba(255,255,255, 0.5), 5px 5px 15px rgba(70,70,70,0.12);
   display: none; 
   position: absolute;
   z-index: 9;
-  background-color: rgba(250, 250, 250, 0.20);
+  background-color: rgba(0, 0, 0, 0.50);
   backdrop-filter: blur(5px) saturate(100%);
   text-align: center;
   border: none;
-  border-radius: 5px;
   width: 500px;
   height: 500px;
 }
 #widget {
-  box-shadow: -5px -5px 15px rgba(255,255,255, 0.5), 5px 5px 15px rgba(70,70,70,0.12);
   position: absolute;
   z-index: 9;
-  background-color: rgba(250, 250, 250, 0.20);
+  display: none;
+  background-color: rgba(0, 0, 0, 0.50);
   backdrop-filter: blur(5px) saturate(100%);
   text-align: center;
   border: none;
-  border-radius: 5px;
   width: 350px;
   height: 223px;
 }
 #settings {
-  box-shadow: -5px -5px 15px rgba(255,255,255, 0.5), 5px 5px 15px rgba(70,70,70,0.12);
   display: none; 
   position: absolute;
   z-index: 9;
-  background-color: rgba(250, 250, 250, 0.20);
+  background-color: rgba(0, 0, 0, 0.50);
   backdrop-filter: blur(5px) saturate(100%);
-  text-align: center;
+  text-align: left;
   border: none;
-  border-radius: 5px;
   width: 500px;
-  height: 500px;
+  height: 600px;
 }
 #paint {
-  box-shadow: -5px -5px 15px rgba(255,255,255, 0.5), 5px 5px 15px rgba(70,70,70,0.12);
   display: none; 
   position: absolute;
   z-index: 9;
-  background-color: rgba(250, 250, 250, 0.20);
+  background-color: rgba(0, 0, 0, 0.50);
   backdrop-filter: blur(5px) saturate(100%);
   text-align: center;
   border: none;
-  border-radius: 5px;
   width: 500px;
   height: 500px;
 }
 .menu {
-  box-shadow: -5px -5px 15px rgba(255,255,255, 0.5), 5px 5px 15px rgba(70,70,70,0.12);
-  background-color: rgba(250, 250, 250, 0.20);
+  background-color: rgba(0, 0, 0, 0.50);
   backdrop-filter: blur(5px) saturate(100%);
 	position: absolute;
-	width: 200px;
-	height: 100vh;
+	width: 400px;
+	height: 70vh;
 	z-index: 2;
+  left: 50%;
+  transform: translateX(-50%);
 	display: none;
-  border-radius: 0px 20px 20px 0px;
+  bottom: 11%;
+}
+#brow {
+  width: 400px;
+  height: 35vh;
 }
 </style>
 <script>
@@ -1205,5 +1369,53 @@ function dragElement(elmnt) {
     document.onmousemove = null;
   }
 }
+
+
+
+dragElement(document.getElementById("driveapp"));
+
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "header")) {
+    /* if present, the header is where you move the DIV from:*/
+    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+  } else {
+    /* otherwise, move the DIV from anywhere inside the DIV:*/
+    elmnt.onmousedown = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // call a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // calculate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    /* stop moving when mouse button is released:*/
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+
+
+
 </script>
 </html>

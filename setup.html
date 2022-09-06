@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Vanadite OS | Setup</title>
+</head>
+<body>
+	<div id="setup">
+		<h2>Setup your Vanadite experience</h2>
+<form action="index.html">
+  <label for="fname">Username:</label><br>
+  <input type="text" id="name" name="fname" value="Vanadite User"><br><br>
+   <label for="fname">Profile Picture:</label><br>
+  <input type="file" id="pfp" name="fname" value="Vanadite User"><br><br>
+  <input onclick="myFunction()" type="submit" value="Submit">
+</form>
+	</div>
+</body>
+</html>
+<style type="text/css">
+	#setup {
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+		top: 30%;
+	}
+	input {
+		border: none;
+		background-color: rgba(250, 250, 250, 0.20);
+    	backdrop-filter: blur(5px) saturate(100%);
+		outline: none;
+		padding: 10px;
+		color: white;
+	}
+	button {
+		background-color: rgba(250, 250, 250, 0.20);
+    	backdrop-filter: blur(5px) saturate(100%);
+		border: none;
+		outline: none;
+		padding: 10px;
+		color: white;
+	}
+	fieldset {
+		border: none;
+		color: white;
+	}
+	body {
+		font-family: 'Poppins', sans-serif;
+		margin: 0;
+		background: url("mesh-895.png");
+		color: white;
+	}
+</style>
+<script type="text/javascript">
+	const inpvalue = document.getElementById("name");
+	const fileInput = document.getElementById("pfp");
+	const key1 = "pfp";
+
+	fileInput.addEventListener("change", e => {
+const file = fileInput.files[0];
+		const reader = new FileReader();
+
+
+		reader.addEventListener("load", () => {
+			console.log(reader.result);
+			localStorage.setItem(key1, reader.result);
+		});
+
+		reader.readAsDataURL(file);
+	});
+function myFunction() {
+		const key = "name";
+		const value = inpvalue.value;
+
+
+		if (key && value) {
+			localStorage.setItem(key, value);
+			location.reload();
+		}
+};
+</script>
