@@ -5,6 +5,7 @@
   <h1 id="Welcome"> Welcome User </h1>
 </div>
 <a href="os.html">Click to enter</a>
+<a id="setup" href="setup.html">Setup profile</a>
 
 <script>
 document.getElementById("Welcome").innerHTML = `${localStorage.getItem("name")}`;
@@ -44,6 +45,14 @@ function checkTime(i) {
     text-decoration: none;
     left: 50%;
     transform: translateX(-50%);
+  }
+  #setup {
+    position: absolute;
+    top: 10px;
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+    left: 75px;
   }
   #txt {
     position: absolute;
